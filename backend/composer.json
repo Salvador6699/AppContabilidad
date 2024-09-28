@@ -1,0 +1,19 @@
+{
+    "name": "salvador/backend",
+    "description": "App de contabilidad del hogar",
+    "type": "app",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Ganbaru",
+            "email": "ganbaru6699@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "firebase/php-jwt": "^6.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3"
+    }
+}

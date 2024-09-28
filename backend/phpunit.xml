@@ -1,0 +1,7 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="YourTestSuite">
+            <directory>./test</directory> <!-- Asegúrate de que esta ruta sea correcta -->
+        </testsuite>
+    </testsuites>
+</phpunit>
