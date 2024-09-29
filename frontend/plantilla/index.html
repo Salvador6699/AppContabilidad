@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContaHogar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Cabecera fija -->
+  <header>
+    <div class="logo">
+      <img src="favicon.ico" alt="logo ContaHogar">
+      <h1>ContaHogar</h1>
+    </div>
+    <button id="menu-button" class="accordion-button"></button>
+  </header>
+
+  <!-- Menú desplegable (acordeón) -->
+  <nav id="accordion-menu" class="accordion-menu">
+    <ul>
+      <li>
+        Sección 1
+        <button class="submenu-toggle"></button>
+        <ul class="submenu">
+          <li>Subsección 1</li>
+          <li>Subsección 2</li>
+          <li>Subsección 3</li>
+        </ul>
+      </li>
+      <li>
+        Sección 2
+        <button class="submenu-toggle"></button>
+        <ul class="submenu">
+          <li>Subsección 1</li>
+          <li>Subsección 2</li>
+          <li>Subsección 3</li>
+        </ul>
+      </li>
+      <!-- Añadir más secciones y subsecciones aquí -->
+    </ul>
+  </nav>
+
+  <!-- Contenido dinámico -->
+  <main id="content">
+    <section class="cards">
+        <div class="card">
+          <h2>Gastos por Categoría</h2>
+          <canvas id="gastos-chart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Cuentas</h2>
+          <p>Nombre: Cuenta 1</p>
+          <p>Saldo: $5000</p>
+          <p>Próximos movimientos: -$200</p>
+        </div>
+      </section>
+      <section class="cards">
+        <div class="card">
+          <h2>Gastos por Categoría</h2>
+          <canvas id="gastos-chart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Cuentas</h2>
+          <p>Nombre: Cuenta 1</p>
+          <p>Saldo: $5000</p>
+          <p>Próximos movimientos: -$200</p>
+        </div>
+      </section>
+      <section class="cards">
+        <div class="card">
+          <h2>Gastos por Categoría</h2>
+          <canvas id="gastos-chart"></canvas>
+        </div>
+        <div class="card">
+          <h2>Cuentas</h2>
+          <p>Nombre: Cuenta 1</p>
+          <p>Saldo: $5000</p>
+          <p>Próximos movimientos: -$200</p>
+        </div>
+      </section>
+      <section class="cards">
+      <div class="card">
+        <h2>Gastos por Categoría</h2>
+        <canvas id="gastos-chart"></canvas>
+      </div>
+      <div class="card">
+        <h2>Cuentas</h2>
+        <p>Nombre: Cuenta 1</p>
+        <p>Saldo: $5000</p>
+        <p>Próximos movimientos: -$200</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botón flotante y sus opciones -->
+  <div class="floating-button-container">
+    <button class="floating-button" id="add-button">+</button>
+    <button class="floating-action hidden" id="gasto-button">G</button>
+    <button class="floating-action hidden" id="ingreso-button">I</button>
+    <button class="floating-action hidden" id="transferencia-button">T</button>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
+
+
