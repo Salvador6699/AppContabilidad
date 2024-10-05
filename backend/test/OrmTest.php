@@ -1,8 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require_once __DIR__ . '/../models/orm.php';
 
+require_once __DIR__ . '/../models/orm.php';
 class OrmTest extends TestCase
 {
     protected $pdo;
