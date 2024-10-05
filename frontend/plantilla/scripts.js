@@ -6,7 +6,7 @@ const floatingActions = document.querySelectorAll('.floating-action');
 const header = document.querySelector('header');
 const accordionButtons = document.querySelectorAll('.submenu-toggle');
 
-
+//BOTON FLOTANTE===========================================================================================
 // Función para manejar el botón flotante
 floatingButton.addEventListener('click', () => {
   floatingButton.classList.toggle('open');
@@ -23,25 +23,19 @@ window.addEventListener('scroll', () => {
       action.classList.remove('show'); // Oculta los botones flotantes
     });
   }
-
-  // Comportamiento del encabezado
-  if (window.scrollY > 50 && !accordionMenu.classList.contains('open')) {
-    header.classList.add('shrink');
-  } else {
-    header.classList.remove('shrink');
-  }
+  //ACORDEON====================================================================================================
 });
 // Función para manejar el acordeón
 accordionButton.addEventListener('click', () => {
   accordionMenu.classList.toggle('open');
   accordionButton.classList.toggle('open'); // Añadir la clase 'open' al botón del acordeón
-
-  if (accordionMenu.classList.contains('open')) {
-    header.classList.remove('shrink'); // Restablece el tamaño del encabezado
-  } else {
-    header.classList.add('shrink'); // Reduce el tamaño del encabezado al cerrar
+  header.classList.toggle('open-menu');//modificamos el estilo de la cabezera
+  if (floatingButton.classList.contains('open')) {
+    floatingButton.classList.remove('open');
+    floatingActions.forEach(action => {
+      action.classList.remove('show'); // Oculta los botones flotantes
+    });
   }
-  
 });
 
 // Función para manejar las subsecciones del acordeón
