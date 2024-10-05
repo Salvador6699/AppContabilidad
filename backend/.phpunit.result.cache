@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":1,"defects":[],"times":{"DatabaseTest::testConnection":0.018,"OrmTest::testGetAll":0.008,"OrmTest::testGetById":0.001,"OrmTest::testGetByWhere":0.001,"OrmTest::testDelete":0.001,"OrmTest::testUpdate":0.001,"OrmTest::testInsert":0.001}}
+=======
+{"version":1,"defects":{"OrmTest::testGetAll":8,"OrmTest::testGetById":8,"OrmTest::testGetByWhere":8,"OrmTest::testDelete":8,"OrmTest::testUpdate":8,"OrmTest::testInsert":8,"EnrutamientoTest::testIndexReturnsWelcomeMessage":8,"DatabaseTest::testConnection":7},"times":{"DatabaseTest::testConnection":0.036,"OrmTest::testGetAll":0.008,"OrmTest::testGetById":0.001,"OrmTest::testGetByWhere":0.001,"OrmTest::testDelete":0.001,"OrmTest::testUpdate":0.001,"OrmTest::testInsert":0.001,"EnrutamientoTest::testIndexReturnsWelcomeMessage":0.015}}
+>>>>>>> 7d3d3cddbf1f7c91373bfc7871ec22ff2752203a
