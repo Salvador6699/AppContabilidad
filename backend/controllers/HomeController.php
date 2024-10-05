@@ -1,10 +1,10 @@
 <?php
 // backend/controllers/HomeController.php
-
-class HomeController {
+require_once(__DIR__.'/../core/ControllerViews.php');
+class HomeController extends ControllerViews {
     public function index() {
-        echo "Bienvenido a la página de inicio <hr> <a href='prueba'>about</a>";
-        return "Bienvenido a la página de inicio";
+        $this->render(['home'],['cuenta'=>'LaCaixa','saldo'=>'255€'],'plantilla');
+        
     }
     public function about() {
         echo "Esta es la página About <hr><a href='/'>home</a>";
