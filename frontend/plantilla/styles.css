@@ -1,0 +1,300 @@
+:root {
+  --color1: #d1d1d1;
+  /* Color base metálico */
+  --color2: #a6a6a6;
+  /* Color secundario */
+  --color3: #7c7c7c;
+  /* Color terciario */
+  --color4: #4d4d4d;
+  /* Color de sombra */
+  --color5: #252525;
+  /* Color de texto */
+  --font-family: Arial, sans-serif;
+  /* Fuente */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color1);
+  color: #333;
+  padding-top: 60px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+  /* Mantiene el 100% del ancho */
+  background-color: var(--color2);
+  border-bottom: 1px solid var(--color3);
+  z-index: 1000;
+  padding: 7px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: height 0.3s ease, padding 0.3s ease;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 0 10px var(--color5);
+  transition: border 1.5s;
+}
+.header.open-menu {
+  border: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0 0 transparent;
+  transition: border 1.5s;
+  .logo h1 {
+    font-size: 1.5rem;
+    color: var(--color3);
+    &::after {
+      content: "Configuración";
+    }
+  }
+  .logo img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+}
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.header .logo h1 {
+  font-size: 1.5rem;
+  color: var(--color5);
+  margin-left: 10px;
+  &::after {
+    content: "ContaHogar";
+  }
+}
+
+.header .logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.accordion-button {
+  background-color: #969696;
+  color: #252525;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px var(--color5);
+}
+
+.accordion-menu {
+  display: block;
+  background: var(--color2);
+  background: linear-gradient(180deg, var(--color2) 48%, var(--color5) 100%);
+  position: fixed;
+  top: 45px;
+  right: 0;
+  width: 100%;
+  height: 0;
+  z-index: 999;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 1.5s, height 1.5s;
+}
+
+.accordion-menu.open {
+  display: block;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 1.5s, height 1.5s;
+}
+
+.accordion-button::after {
+  content: "☰";
+  /* Cambiar a "X" */
+}
+
+.accordion-button.open::after {
+  content: "✖";
+  /* Cambiar a "☰" */
+}
+
+.accordion-menu ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.accordion-menu li {
+  margin-bottom: 10px;
+  position: relative;
+  color: var(--color5);
+}
+
+.submenu {
+  display: none;
+  /* Inicialmente oculto */
+  padding-left: 15px;
+  color: var(--color3);
+  opacity: 0;
+  /* Inicialmente oculto */
+  transform: translateY(-10px);
+  /* Mover hacia arriba para la animación */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Animación suave */
+}
+
+.submenu.open {
+  display: block;
+  /* Mostrar cuando está abierto */
+  opacity: 1;
+  /* Hacer visible */
+  transform: translateY(0);
+  /* Mover a su posición original */
+}
+
+.submenu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--color5);
+}
+
+.submenu-toggle.open::after {
+  content: "✖";
+  /* Cambiar a "X" */
+}
+
+.submenu-toggle::after {
+  content: "▼";
+  /* Cambiar a "▼" cuando está cerrado */
+}
+
+section {
+  margin-top: 5px;
+  box-shadow: 0 0 20px var(--color4);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+  box-shadow: 0 0 20px var(--color4);
+}
+
+.card {
+  background-color: var(--color3);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--color5);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: var(--color5);
+}
+
+.floating-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1100;
+  /* Asegura que esté siempre encima */
+}
+
+/* Botón flotante */
+.floating-button {
+  background-color: var(--color2);
+  color: var(--color5);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  /* Ajustar tamaño del botón principal */
+  height: 60px;
+  /* Ajustar tamaño del botón principal */
+  font-size: 30px;
+  /* Tamaño del icono '+' */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px var(--color5);
+}
+
+.floating-button.open {
+  transform: rotate(45deg);
+  /* Rotar el botón principal al abrir */
+  box-shadow: 0 0 10px rgba(39, 149, 223, 0.89);
+  background-color: rgba(197, 42, 21, 0.212);
+}
+
+.floating-action {
+  background-color: var(--color2);
+  color: var(--color5);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  /* Ajustar tamaño de los botones secundarios */
+  height: 50px;
+  /* Ajustar tamaño de los botones secundarios */
+  font-size: 20px;
+  /* Tamaño del icono */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  /* Inicialmente oculto */
+  transform: scale(0);
+  /* Inicialmente oculto */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  box-shadow: 0 0 10px rgba(39, 149, 223, 0.89);
+}
+
+/* Animaciones de aparición de los botones secundarios */
+.floating-button.open ~ .floating-action.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.floating-action:nth-child(2) {
+  bottom: 70px;
+  /* Ajustar para estar encima del botón principal */
+  right: 0;
+  /* Alineado a la derecha del botón principal */
+  transition-delay: 0.1s;
+  /* Retraso para la animación */
+}
+
+.floating-action:nth-child(3) {
+  bottom: 130px;
+  /* Ajustar para estar encima del botón principal */
+  right: 0;
+  /* Alineado a la derecha del botón principal */
+  transition-delay: 0.2s;
+  /* Retraso para la animación */
+}
+
+.floating-action:nth-child(4) {
+  bottom: 190px;
+  /* Ajustar para estar encima del botón principal */
+  right: 0;
+  /* Alineado a la derecha del botón principal */
+}
