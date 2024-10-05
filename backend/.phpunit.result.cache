@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"DatabaseTest::testConnection":0.018,"OrmTest::testGetAll":0.008,"OrmTest::testGetById":0.001,"OrmTest::testGetByWhere":0.001,"OrmTest::testDelete":0.001,"OrmTest::testUpdate":0.001,"OrmTest::testInsert":0.001}}
