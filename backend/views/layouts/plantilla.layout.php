@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ContaHogar</title>
-    <link rel="stylesheet" href="/frontend/plantilla/styles.css">
+    <link rel="stylesheet" href="/frontend/assets/css/styles.css">
 </head>
 
 <body>
@@ -57,7 +57,7 @@
         <button class="floating-action hidden" id="transferencia-button">T</button>
     </div>
 
-    <script src="/frontend/plantilla/scripts.js"></script>
+    <script src="/frontend/assets/js/scripts.js"></script>
 </body>
 
 </html>
