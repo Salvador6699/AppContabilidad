@@ -14,7 +14,7 @@ class DatabaseConexion
             $this->conexion = new PDO("mysql:host=localhost;dbname=contabilidad2", "myganbaru", "vS7coLmZ");
         } catch (PDOException $e) {
             //intentamos la conexion en local
-            $this->conexion = new PDO("mysql:host=localhost;dbname=contahogar", "root","");
+            $this->conexion = new PDO("mysql:host=localhost;dbname=contahogar2", "root","");
         }
         $this->conexion->exec("set names utf8");
     }

@@ -17,14 +17,14 @@ class DatabaseTest extends TestCase
         $this->assertNotNull($conexion, "La conexión no debe ser null");
 
         // Verificar si la consulta se ejecuta correctamente
-        $stmt = $conexion->query("SELECT * FROM users");
+        $stmt = $conexion->query("SELECT * FROM usuarios");
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // CORRECCIÓN: Verifica si la consulta devolvió un resultado
         $this->assertNotFalse($result, "La consulta no devolvió resultados");
         
         // Asegúrate de que la clave 'id' (o cualquier otra clave que esperes) exista en el resultado
-        $this->assertArrayHasKey('idUsers', $result, "La consulta no devolvió la clave 'id'");
+        $this->assertArrayHasKey('dniUsuario', $result, "La consulta no devolvió la clave 'id'");
     }
 }
 
