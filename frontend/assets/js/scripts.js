@@ -63,4 +63,3 @@ accordionButtons.forEach(button => {
     }
   });
 });
-
