@@ -60,13 +60,13 @@ class Orm
             $stm = $this->db->prepare($sql);
 
             // Enlazar el valor del ID
-            $stm->bindValue(':id', $id, PDO::PARAM_INT);
+            $stm->bindValue(':id', $id, PDO::PARAM_STR);
 
             // Ejecutar la consulta
             $stm->execute();
 
             // Devolver el resultado como un array asociativo
-            return $stm->fetch(PDO::FETCH_ASSOC);
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             // Manejar el error o registrarlo
             return [];
