@@ -1,27 +1,18 @@
-<div id="usuario"></div>
+<div class="card">
+    <h1>Usuarios</h1>
+    <button onclick="todosUsuarios()">Todos</button><br>
+    <h3>Buscar usuario por:</h3>
+    <select name="filtrobuscador" id="filtrobuscador">
+        <option value="nomUsuario">Nombre</option>
+        <option value="emailUsuario">Email</option>
+    </select>
+    <input type="text" id="buscador" placeholder="Ingresa el nombre o email" 
+           onfocus="limpiarInput(this)" 
+           onkeydown="verificarEnter(event,()=>buscarUsuario())">
+    <button onclick="buscarUsuario()">Buscar</button>
+</div>
+<section class="cards" id="usuarios"></section>
 
-<script>
-    async function listarUsuarios() {
-        try {
-            // Hacer la solicitud a la API
-            let response = await fetch(BASE_URL+'listar');
-            let responseData = await response.json();
+<script src="/frontend/assets/js/usuarios.js"></script>
+<script src="/frontend/assets/js/inputs.js"></script>
 
-            // Obtener el contenedor donde se mostrarán los usuarios
-            const usuario = document.getElementById('usuario');
-
-            // Recorrer la lista de usuarios y generar el HTML
-            responseData.result.forEach(element => {
-                // Insertar los datos dentro del contenedor
-                usuario.insertAdjacentHTML('beforeend',
-                `${element.email}
-                <hr>`);
-            });
-        } catch (error) {
-            console.error('Error al listar usuarios:', error); // Manejo de errores
-        }
-    }
-
-    // Llamar a la función para listar los usuarios
-    listarUsuarios();
-</script>
