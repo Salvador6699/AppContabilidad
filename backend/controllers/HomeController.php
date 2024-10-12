@@ -1,9 +1,7 @@
 <?php
 // backend/controllers/HomeController.php
 require_once(__DIR__ . '/../core/ControllerViews.php');
-require_once(__DIR__ . '/../models/usuariosModel.php');
-require_once(__DIR__ . '/../helper/common.php');
-require_once(__DIR__ . '/../helper/renombrarColumnas.php');
+
 
 class HomeController extends ControllerViews
 {
