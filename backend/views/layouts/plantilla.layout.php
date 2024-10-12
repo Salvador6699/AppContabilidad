@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ContaHogar</title>
     <link rel="stylesheet" href="/frontend/assets/css/styles.css">
+    <script src="/frontend/assets/js/url.js">
+    </script>
 </head>
 
 <body>
@@ -57,7 +59,8 @@
         <button class="floating-action hidden" id="transferencia-button">T</button>
     </div>
 
-    <script src="/frontend/assets/js/scripts.js"></script>
+    <script src="/frontend/assets/js/scripts.js">
+    </script>
 </body>
 
 </html>

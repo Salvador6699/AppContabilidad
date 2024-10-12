@@ -4,7 +4,7 @@
     async function listarUsuarios() {
         try {
             // Hacer la solicitud a la API
-            let response = await fetch('http://appcontabilidad/listar');
+            let response = await fetch(BASE_URL+'listar');
             let responseData = await response.json();
 
             // Obtener el contenedor donde se mostrarán los usuarios

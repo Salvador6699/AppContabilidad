@@ -1,43 +1,22 @@
 <?php
 require_once(__DIR__.'/../services/conexion.php');
+require_once(__DIR__.'/../services/Router.php');
+
 // Crear una instancia de la clase Database
 $db = new DatabaseConexion();
-        
-// Obtener la conexión
 $conexion = $db->getConexion();
-$request = $_SERVER['REQUEST_URI'];
-$request = strtok($request, '?');
 
-$routes = [
-    '/' => 'HomeController@index',
-    '/prueba' => 'HomeController@about',
-    '/user' => 'UserController@index',
-    '/user/create' => 'UserController@create',
-    '/listar'=>'HomeController@listar'
-];
+// Crear una instancia de Router
+$router = new Router();
 
-if (array_key_exists($request, $routes)) {
-    list($controller, $method) = explode('@', $routes[$request]);
+// Definir rutas con y sin parámetros
+$router->add('/', 'HomeController@index');
+$router->add('/user', 'UserController@index');
+$router->add('/user/create', 'UserController@create');  
+$router->add('/listar', 'HomeController@listar');
 
-    // Incluimos el archivo del controlador
-    require "../backend/controllers/$controller.php";
+// Definir la ruta 404 por defecto
+$router->setNotFound('ErrorController@home');
 
-    // Creamos una instancia del controlador
-    $controllerInstance = new $controller($conexion);
-
-    // Llamamos al método
-    $controllerInstance->$method();
-} else {
-    // Si no se encuentra la ruta, mostramos un error 404
-    http_response_code(404);
-    $controller="ErrorController";
-    $method="home";
-    // Incluimos el archivo del controlador
-    require "../backend/controllers/$controller.php";
-    // Creamos una instancia del controlador
-    $controllerInstance = new $controller();
-
-    // Llamamos al método
-    $controllerInstance->$method();
-}
-
+// Resolver la solicitud
+$router->resolve($_SERVER['REQUEST_URI'], $conexion);
