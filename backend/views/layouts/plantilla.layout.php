@@ -5,10 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ContaHogar</title>
-    <link rel="stylesheet" href="/frontend/assets/css/styles.css">
-    <script src="/frontend/assets/js/url.js">
-    </script>
+
+    <?php
+    // Generar una versión única basada en el tiempo para romper el caché
+    $version = time();
+    ?>
+
+    <!-- Agregar la versión a la hoja de estilos -->
+    <link rel="stylesheet" href="/frontend/assets/css/styles.css?v=<?php echo $version; ?>">
+
+    <!-- Agregar la versión al archivo JS -->
+    <script src="/frontend/assets/js/url.js?v=<?php echo $version; ?>"></script>
 </head>
+
 
 <body>
     <!-- Cabecera fija -->
