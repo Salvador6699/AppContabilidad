@@ -13,7 +13,9 @@ $router = new Router();
 $router->add('/', 'HomeController@index');
 $router->add('/user', 'UserController@index');
 $router->add('/user/create', 'UserController@create');  
-$router->add('/listar', 'HomeController@listar');
+$router->add('/listar', 'UsuarioController@listar');
+$router->add('/buscarUsuario','UsuarioController@buscarUsuario');
+$router->add('/usuarios','UsuarioController@usuariosHome');
 
 // Definir la ruta 404 por defecto
 $router->setNotFound('ErrorController@home');

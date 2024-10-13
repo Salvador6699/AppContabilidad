@@ -298,3 +298,51 @@ section {
   right: 0;
   /* Alineado a la derecha del botón principal */
 }
+/*LOGIN*/
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--color1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--color4);
+}
+
+.login-section h2 {
+  margin-bottom: 20px;
+  color: var(--color5);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color5);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color3);
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: var(--color2);
+  color: var(--color5);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: var(--color3);
+}
