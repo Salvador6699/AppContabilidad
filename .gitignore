@@ -2,3 +2,4 @@
 .phpunit.result.cache
 .database/
 backend/database/esquemaBaseDatos.vuerd.json
+.cache/
