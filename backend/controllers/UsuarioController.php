@@ -54,21 +54,8 @@ class UsuarioController extends ControllerViews
         $res = new Result();
         $res->success = true;
         $res->result = $usuariosRenombrados;
-
-        $jsonData = json_encode($res);
-        $file = __DIR__ . '/../cache/usuarios.json';
-        $fp = fopen($file, 'w');
-
-        if ($fp) {
-            // Escribir los datos JSON en el archivo
-            fwrite($fp, $jsonData);
-            // Cerrar el archivo
-            fclose($fp);
-            echo "El archivo JSON se creó correctamente.";
-        } else {
-            echo "Error al crear el archivo JSON.";
-        }
-        
+        $this->renderJson($res,'usuarios');
+ 
     }
 
     public function about()
