@@ -76,14 +76,14 @@ class Orm
     // Método para obtener registros filtrando por una columna específica
     public function getByWhere($where, $filter)
     {
-        $sql = "SELECT * FROM $this->table WHERE $where = :filter"; // Consulta base
+        $sql = "SELECT * FROM $this->table WHERE $where LIKE :filter"; // Consulta modificada para usar LIKE
 
         try {
             // Preparar la consulta
             $stm = $this->db->prepare($sql);
 
-            // Enlazar el valor del filtro
-            $stm->bindValue(':filter', $filter);
+            // Enlazar el valor del filtro con comodines %
+            $stm->bindValue(':filter', "%$filter%", PDO::PARAM_STR);
 
             // Ejecutar la consulta
             $stm->execute();
