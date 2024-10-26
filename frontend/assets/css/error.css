@@ -1,0 +1,53 @@
+.container_error {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    margin-top: 40px;
+
+    @media (max-width: 600px) {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+justify-content: center;
+    }
+
+    .logo {
+        width: 400px;
+        /* Ajusta el tamaño de la imagen según sea necesario */
+        margin-bottom: 20px;
+
+        @media (max-width: 600px) {
+            width: 200px;
+            
+        }
+    }
+
+    h1 {
+        font-size: 20.5em;
+        margin: 20px 0;
+        @media (max-width: 600px) {
+            font-size: 2.5em;
+        }
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: white;
+        background-color: #007BFF;
+        /* Color de fondo del botón */
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+        /* Color del botón al pasar el ratón */
+    }
+}

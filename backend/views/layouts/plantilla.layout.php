@@ -13,6 +13,7 @@
 
     <!-- Agregar la versión a la hoja de estilos -->
     <link rel="stylesheet" href="/frontend/assets/css/styles.css?v=<?php echo $version; ?>">
+    <link rel="stylesheet" href="/frontend/assets/css/error.css?v=<?php echo $version; ?>">
 
     <!-- Agregar la versión al archivo JS -->
     <script src="/frontend/assets/js/url.js?v=<?php echo $version; ?>"></script>
@@ -69,6 +70,12 @@
     </div>
 
     <script src="/frontend/assets/js/scripts.js">
+    </script>
+    <script>
+        if(menu==false){
+            const boton=document.querySelector('.floating-button-container');
+            boton.style.display = 'none';
+        }
     </script>
 </body>
 
