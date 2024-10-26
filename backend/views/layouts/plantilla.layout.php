@@ -10,7 +10,7 @@
     // Generar una versión única basada en el tiempo para romper el caché
     $version = time();
     ?>
-
+<script>let menu=true;</script>
     <!-- Agregar la versión a la hoja de estilos -->
     <link rel="stylesheet" href="/frontend/assets/css/styles.css?v=<?php echo $version; ?>">
     <link rel="stylesheet" href="/frontend/assets/css/error.css?v=<?php echo $version; ?>">
