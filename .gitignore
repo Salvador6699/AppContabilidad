@@ -4,3 +4,4 @@
 backend/database/esquemaBaseDatos.vuerd.json
 .cache/
 .json
+.sql
