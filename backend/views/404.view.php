@@ -14,6 +14,4 @@ http_response_code(404); // Establece el código de respuesta HTTP a 404
 </div>
 <script>
     let menu=false;
-
-    
 </script>

@@ -1,7 +1,8 @@
 <?php
-require_once(__DIR__ . '/../models/usuariosModel.php');
+
+
 require_once(__DIR__ . '/../helper/common.php');
-require_once(__DIR__ . '/../helper/renombrarColumnas.php');
+require_once(__DIR__ . '/../helper/funcionesController.php');
 class ControllerViews{
 
     protected function render($path=[], $parameters = [], $layout = '')
@@ -11,7 +12,7 @@ class ControllerViews{
         }$elementos=count($path);
         ob_start();
         for ($i=0; $i <$elementos ; $i++) { 
-            require_once(__DIR__ . '/../views/' . $path[$i] . '.view.php');
+            require_once(__DIR__ . '/../views/' . $path[$i] . '.view.html');
         }
         
         $content = ob_get_clean();

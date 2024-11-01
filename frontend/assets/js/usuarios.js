@@ -1,13 +1,13 @@
 async function todosUsuarios() {
     try {
         // Hacer la solicitud a la API para listar todos los usuarios
-        let response = await fetch('/../../../backend/cache/usuarios.json');
+        let response = await fetch(urlJson+'usuarios.json');
         let responseData = await response.json();
         mostrarUsuarios(responseData.result,'all');
     } catch (error) {
         console.error("No hay json:", error); // Manejo de errores
         let json=await fetch(BASE_URL+'listar');
-        let response = await fetch('/../../../backend/cache/usuarios.json');
+        let response = await fetch(urlJson+'usuarios.json');
         let responseData = await response.json();
         mostrarUsuarios(responseData.result,'all');
         

@@ -10,12 +10,17 @@ $conexion = $db->getConexion();
 $router = new Router();
 
 // Definir rutas con y sin parámetros
+//home
 $router->add('/', 'HomeController@index');
+//usuarios
 $router->add('/user', 'UserController@index');
 $router->add('/user/create', 'UserController@create');  
 $router->add('/listar', 'UsuarioController@listar');
 $router->add('/buscarUsuario','UsuarioController@buscarUsuario');
 $router->add('/usuarios','UsuarioController@usuariosHome');
+//cuentas
+$router->add('/cuentas','CuentasController@cuentasHome');
+$router->add('/getCuentas','CuentasController@getCuentas');
 
 // Definir la ruta 404 por defecto
 $router->setNotFound('ErrorController@home');

@@ -1,7 +1,7 @@
 <?php
 // backend/controllers/HomeController.php
 require_once(__DIR__ . '/../core/ControllerViews.php');
-
+require_once(__DIR__ . '/../models/usuariosModel.php');
 
 class UsuarioController extends ControllerViews
 {
@@ -13,7 +13,7 @@ class UsuarioController extends ControllerViews
     }
 
     public function usuariosHome() {
-    $this->render(['listar'],[],'plantilla');
+    $this->render(['usuarios'],[],'plantilla');
     }
     public function buscarUsuario() {
      // Verifica si se proporcionó un valor de búsqueda
@@ -24,6 +24,8 @@ class UsuarioController extends ControllerViews
          $mapaColumnas = [
             'nomUsuario' => 'nombre',
             'emailUsuario' => 'email',
+            'dniUsuario' => 'dni',
+            'passwordUsuario' => 'password',
             // Añade más columnas si es necesario
         ];
 
@@ -46,7 +48,8 @@ class UsuarioController extends ControllerViews
         $mapaColumnas = [
             'nomUsuario' => 'nombre',
             'emailUsuario' => 'email',
-            // Añade más columnas si es necesario
+            'dniUsuario' => 'dni',
+            'passwordUsuario' => 'password',
         ];
 
         // Renombrar las columnas usando la función genérica
@@ -54,20 +57,7 @@ class UsuarioController extends ControllerViews
         $res = new Result();
         $res->success = true;
         $res->result = $usuariosRenombrados;
-
-        $jsonData = json_encode($res);
-        $file = __DIR__ . '/../cache/usuarios.json';
-        $fp = fopen($file, 'w');
-
-        if ($fp) {
-            // Escribir los datos JSON en el archivo
-            fwrite($fp, $jsonData);
-            // Cerrar el archivo
-            fclose($fp);
-            echo "El archivo JSON se creó correctamente.";
-        } else {
-            echo "Error al crear el archivo JSON.";
-        }
+        createJsonFile($res,'usuarios');
         
     }
 

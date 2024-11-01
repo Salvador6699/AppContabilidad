@@ -76,14 +76,14 @@ class Orm
     // Método para obtener registros filtrando por una columna específica
     public function getByWhere($where, $filter)
     {
-        $sql = "SELECT * FROM $this->table WHERE $where = :filter"; // Consulta base
+        $sql = "SELECT * FROM $this->table WHERE $where LIKE :filter"; // Consulta base con LIKE
 
         try {
             // Preparar la consulta
             $stm = $this->db->prepare($sql);
 
-            // Enlazar el valor del filtro
-            $stm->bindValue(':filter', $filter);
+            // Enlazar el valor del filtro con comodines para LIKE
+            $stm->bindValue(':filter', "%$filter%", PDO::PARAM_STR);
 
             // Ejecutar la consulta
             $stm->execute();
@@ -174,4 +174,31 @@ class Orm
             // Manejar el error o registrarlo
         }
     }
+  // Método para obtener datos agrupados por subcategoría y mes, incluyendo media y total
+public function obtenerDatosPorSubcategoriaYMes($anio, $subcategoria)
+{
+    $sql = "SELECT 
+                subcategorias_nom_subcategorias,
+                MONTH(fecha_movimiento) AS mes, 
+                YEAR(fecha_movimiento) AS anio, 
+                SUM(importe_movimiento) AS total,
+                AVG(SUM(importe_movimiento)) OVER () AS media_total,
+                SUM(SUM(importe_movimiento)) OVER () AS total_general
+            FROM $this->table
+            WHERE YEAR(fecha_movimiento) = :anio 
+                AND subcategorias_nom_subcategorias = :subcategoria
+            GROUP BY subcategorias_nom_subcategorias, YEAR(fecha_movimiento), MONTH(fecha_movimiento)
+            ORDER BY subcategorias_nom_subcategorias ASC, YEAR(fecha_movimiento), MONTH(fecha_movimiento)";
+
+    try {
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(':anio', $anio, PDO::PARAM_INT);
+        $stm->bindParam(':subcategoria', $subcategoria, PDO::PARAM_STR);
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        // Manejar el error o registrarlo
+        return false;
+    }
+}
 }

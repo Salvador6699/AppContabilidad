@@ -24,7 +24,7 @@
     <!-- Cabecera fija -->
     <header class="header">
         <div class="logo">
-            <img src="/frontend/plantilla/favicon.ico" alt="logo ContaHogar">
+            <a href="/"><img src="/frontend/plantilla/favicon.ico" alt="logo ContaHogar"></a>
             <h1></h1>
         </div>
         <button id="menu-button" class="accordion-button"></button>

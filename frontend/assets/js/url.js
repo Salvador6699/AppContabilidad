@@ -16,3 +16,4 @@ return baseUrlWithoutLastSegment;
 }
 // Obtener la nueva URL base
 const BASE_URL = getBaseUrlWithoutLastSegment(UrlComplet);
+const urlJson=BASE_URL+'/backend/cache/';
