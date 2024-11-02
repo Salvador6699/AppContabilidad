@@ -1,0 +1,14 @@
+[
+    {
+        "id": "2",
+        "importe": "10",
+        "fecha": "2024-11-01",
+        "comentario": "prueba",
+        "tipo": "Gasto",
+        "subcategoria": "Compra",
+        "categoria": "Hogar",
+        "idUsuario": "20819449x",
+        "cuenta": "LaCaixa",
+        "idUsuarioCuenta": "20819449x"
+    }
+]

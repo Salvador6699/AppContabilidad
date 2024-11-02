@@ -17,16 +17,11 @@ class CuentasController extends ControllerViews
             'nomCuenta' => 'cuenta',
             'saldoCuenta' => 'saldo',
             'usuarios_dniUsuario' => 'dni',
-            // Añade más columnas si es necesario
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentasRenombradas = renombrarColumnas($cuentas, $mapaColumnas);
-        $res = new Result();
-        $res->success = true;
-        $res->message = "Cuentas obtenidas correctamente";
-        $res->result = $cuentasRenombradas;
-        createJsonFile($res,'cuentas');
+        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);
+        createJsonFile($cuentas,'cuentas');
         
     }
     public function cuentasHome()

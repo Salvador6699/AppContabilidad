@@ -1,12 +1,8 @@
-{
-    "success": true,
-    "result": [
-        {
-            "id": "LaCaixa",
-            "cuenta": "LaCaixa",
-            "saldo": "258",
-            "dni": "20819449x"
-        }
-    ],
-    "message": "Cuentas obtenidas correctamente"
-}
+[
+    {
+        "id": "LaCaixa",
+        "cuenta": "LaCaixa",
+        "saldo": "258",
+        "dni": "20819449x"
+    }
+]

@@ -12,7 +12,14 @@ class ControllerViews{
         }$elementos=count($path);
         ob_start();
         for ($i=0; $i <$elementos ; $i++) { 
-            require_once(__DIR__ . '/../views/' . $path[$i] . '.view.html');
+            if (file_exists(__DIR__ . '/../views/' . $path[$i] . '.view.html')) {
+                require_once(__DIR__ . '/../views/' . $path[$i] . '.view.html');
+            } else if (file_exists(__DIR__ . '/../views/' . $path[$i] . '.view.php')) {
+                require_once(__DIR__ . '/../views/' . $path[$i] . '.view.php');
+            } else {
+                require_once(__DIR__ . '/../views/vista.404.view.html');
+            }
+            
         }
         
         $content = ob_get_clean();

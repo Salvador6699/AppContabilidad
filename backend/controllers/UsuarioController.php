@@ -31,17 +31,14 @@ class UsuarioController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $usuariosRenombrados = renombrarColumnas($usuarios, $mapaColumnas);
-        $res = new Result();
-        $res->success = true;
-        $res->result = $usuariosRenombrados;
-        echo json_encode($res);
+        echo json_encode($usuariosRenombrados);
     }
-    public function listar()
+    public function getUsuarios()
     {
        
         // Obtiene todos los usuarios o busca uno específico
         
-            $usuarios = $this->usuariosModel->getAll(null, null, 'ASC');
+            $usuarios = $this->usuariosModel->getAll();
         
 
         // Mapeo de los nombres de las columnas que deseas cambiar
@@ -54,16 +51,9 @@ class UsuarioController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $usuariosRenombrados = renombrarColumnas($usuarios, $mapaColumnas);
-        $res = new Result();
-        $res->success = true;
-        $res->result = $usuariosRenombrados;
-        createJsonFile($res,'usuarios');
+        createJsonFile($usuariosRenombrados,'usuarios');
+        $this->render(['usuarios'],[],'plantilla');
         
     }
 
-    public function about()
-    {
-
-        echo "Esta es la página About <hr><a href='/'>home</a>";
-    }
 }

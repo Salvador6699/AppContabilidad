@@ -39,13 +39,25 @@ class Router
                 // Crear una instancia del controlador
                 $controllerInstance = new $controller($conexion);
 
-                // Llamar al método con los parámetros capturados
-                call_user_func_array([$controllerInstance, $method], $matches);
-                return;
+                // Comprobar si el método existe en el controlador
+                if (method_exists($controllerInstance, $method)) {
+                    // Llamar al método con los parámetros capturados
+                    call_user_func_array([$controllerInstance, $method], $matches);
+                } else {
+                    // Manejar el error 404 si el método no existe
+                    $this->handleNotFound();
+                    return;
+                }
             }
         }
 
-        // Si no se encuentra la ruta, mostrar la página 404
+        // Si no se encuentra la ruta, manejar el error 404
+        $this->handleNotFound();
+    }
+
+    // Método para manejar la respuesta 404
+    private function handleNotFound()
+    {
         if ($this->notFound) {
             list($controller, $method) = explode('@', $this->notFound);
             require_once "../backend/controllers/$controller.php";

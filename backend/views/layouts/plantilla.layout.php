@@ -74,7 +74,9 @@
     <script>
         if(menu==false){
             const boton=document.querySelector('.floating-button-container');
+            const menu=document.getElementById('menu-button');
             boton.style.display = 'none';
+            menu.style.display='none';
         }
     </script>
 </body>

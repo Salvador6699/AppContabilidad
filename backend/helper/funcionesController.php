@@ -17,6 +17,7 @@ function createJsonFile($data, $fileName)
     
     // Comprobar si el archivo ya existe y eliminarlo si es necesario
     if (file_exists($file)) {
+        // Eliminar el archivo especificado
         unlink($file);
     }
     
