@@ -39,6 +39,7 @@ $router->add('/json_presupuestos','PresupuestosController@getPresupuestos');
 $router->add('/json_proyectos','ProyectosController@getProyectos');
 //tipoMovimiento
 $router->add('/json_tipoMovimiento','TipoMovimientoController@getTipoMovimiento');
-
+//transferencia de datos
+$router->add('/transferencia','TransferenciaController@transferirDatos');
 // Resolver la solicitud
 $router->resolve($_SERVER['REQUEST_URI'], $conexion);

@@ -5,7 +5,7 @@ class SubcategoriasModel extends Orm
     
     public function __construct(PDO $conexion)
     {
-        parent::__construct ("nomSubcategoria","subcategorias",$conexion);
+        parent::__construct (["nomSubcategoria","categorias_nomCategoria"],"subcategorias",$conexion);
     }
     
 }
