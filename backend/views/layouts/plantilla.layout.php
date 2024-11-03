@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ContaHogar</title>
+    <link rel="icon" href="/frontend/assets/img/favicon.ico" type="image/x-icon">
 
     <?php
     // Generar una versión única basada en el tiempo para romper el caché
