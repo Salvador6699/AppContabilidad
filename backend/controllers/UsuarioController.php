@@ -51,7 +51,11 @@ class UsuarioController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $usuariosRenombrados = renombrarColumnas($usuarios, $mapaColumnas);
-        createJsonFile($usuariosRenombrados,'usuarios');
+        $res=new Result();
+        $res->message='mensaje';
+        $res->success=true;
+        $res->result=$usuariosRenombrados;
+        createJsonFile($res,'usuarios');
         $this->render(['usuarios'],[],'plantilla');
         
     }

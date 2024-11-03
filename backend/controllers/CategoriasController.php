@@ -21,7 +21,11 @@ class CategoriasController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
-        createJsonFile($categorias,'categorias');
+        $res=new Result();
+        $res->message='mensaje';
+        $res->success=true;
+        $res->result=$categorias;
+        createJsonFile($res,'categorias');
         
     }
     

@@ -21,7 +21,11 @@ class DeudaController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
-        createJsonFile($deudas,'deudas');
+        $res=new Result();
+        $res->message='mensaje';
+        $res->success=true;
+        $res->result=$deudas;
+        createJsonFile($res,'deudas');
         
     }
     

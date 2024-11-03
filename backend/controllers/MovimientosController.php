@@ -29,6 +29,10 @@ class MovimientosController extends ControllerViews
             // Añade más columnas si es necesario
         ];
         $movimientos = renombrarColumnas($movimientos, $mapaColumnas);
-        createJsonFile($movimientos, 'movimientos');
+        $res=new Result();
+        $res->message='mensaje';
+        $res->success=true;
+        $res->result=$movimientos;
+        createJsonFile($res, 'movimientos');
     }
 }

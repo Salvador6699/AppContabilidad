@@ -21,6 +21,10 @@ class BalanceController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
-        createJsonFile($balance, 'balance');
+        $res=new Result();
+        $res->message='mensaje';
+        $res->success=true;
+        $res->result=$balance;
+        createJsonFile($res, 'balance');
     }
 }

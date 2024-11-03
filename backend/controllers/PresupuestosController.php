@@ -21,7 +21,11 @@ class PresupuestosController extends ControllerViews
 
         // Renombrar las columnas usando la función genérica
         $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
-        createJsonFile($presupuestos,'presupuestos');
+        $res=new Result();
+        $res->message='mensaje';
+        $res->success=true;
+        $res->result=$presupuestos;
+        createJsonFile($res,'presupuestos');
         
     }
     

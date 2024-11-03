@@ -14,6 +14,6 @@ class HomeController extends ControllerViews
 
     public function index()
     {
-        $this->render(['home'], [], 'plantilla');
+        $this->render(['cuentas','categorias'], [], 'plantilla');
     }
 }
