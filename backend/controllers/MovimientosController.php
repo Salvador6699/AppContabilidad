@@ -21,16 +21,16 @@ class MovimientosController extends ControllerViews
             "fechaMovimiento" => 'fecha',
             "comentarioMovimiento" => 'comentario',
             "tipoMovimiento_nomTipoMovimiento" => "tipo",
-            "subcategorias_nomSubcategoira" => "subcategoria",
+            "subcategorias_nomSubcategoria" => "subcategoria",
             "subcategorias_categorias_nomCategoria" => "categoria",
-            "usuarios_dniUsuario" => "idUsuario",
+            "usuarios_dniUsuario" => "usuario",
             "cuentas_idCuenta" => "cuenta",
-            "cuentas_usuarios_dniUsuario" => "idUsuarioCuenta"
+            "cuentas_usuarios_dniUsuario" => "usuario cuenta"
             // Añade más columnas si es necesario
         ];
         $movimientos = renombrarColumnas($movimientos, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message= count($movimientos) . ' registros de movimientos';
         $res->success=true;
         $res->result=$movimientos;
         createJsonFile($res, 'movimientos');

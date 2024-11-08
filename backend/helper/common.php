@@ -1,13 +1,14 @@
 <?php
-class Result{
+class Result
+{
+    public $message;
     public $success;
     public $result;
-    public $message;
+
     public function __construct()
     {
-        $this->success=false;
-        $this->result=[];
-        $this->message='';
-    
+        $this->message = '';
+        $this->success = false;
+        $this->result = [];
     }
 }

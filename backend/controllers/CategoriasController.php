@@ -12,17 +12,14 @@ class CategoriasController extends ControllerViews
     {
         $categorias = $this->categoriasModel->getAll();
           // Mapeo de los nombres de las columnas que deseas cambiar
-         /* $mapaColumnas = [
-            'idCuenta' => 'id',
-            'nomCuenta' => 'cuenta',
-            'saldoCuenta' => 'saldo',
-            'usuarios_dniUsuario' => 'dni',
-        ];
-
+          $mapaColumnas = [
+            'nomCategoria'=>'nombre',
+            'tipoCategoria'=>'tipo'
+          ];
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
+        $categorias = renombrarColumnas($categorias, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message= count($categorias) . ' registros de categorias';
         $res->success=true;
         $res->result=$categorias;
         createJsonFile($res,'categorias');

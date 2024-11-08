@@ -12,7 +12,7 @@ class PresupuestosController extends ControllerViews
     {
         $presupuestos = $this->presupuestosModel->getAll();
           // Mapeo de los nombres de las columnas que deseas cambiar
-         /* $mapaColumnas = [
+         $mapaColumnas = [
             'idCuenta' => 'id',
             'nomCuenta' => 'cuenta',
             'saldoCuenta' => 'saldo',
@@ -20,9 +20,9 @@ class PresupuestosController extends ControllerViews
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
+        $presupuestos = renombrarColumnas($presupuestos, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message=count($presupuestos).' registros de presupuestos';
         $res->success=true;
         $res->result=$presupuestos;
         createJsonFile($res,'presupuestos');

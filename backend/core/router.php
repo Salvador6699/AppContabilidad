@@ -26,7 +26,7 @@ $router->add('/json_cuentas','CuentasController@getCuentas');
 //movimientos
 $router->add('/json_movimientos','MovimientosController@getMovimientos');
 //balance
-$router->add('/json_balance','BalanceController@getBalance');
+$router->add('/json_balances','BalanceController@getBalance');
 //categorias
 $router->add('/json_categorias','CategoriasController@getCategorias');
 //subcategorias
@@ -38,7 +38,7 @@ $router->add('/json_presupuestos','PresupuestosController@getPresupuestos');
 //proyectos
 $router->add('/json_proyectos','ProyectosController@getProyectos');
 //tipoMovimiento
-$router->add('/json_tipoMovimiento','TipoMovimientoController@getTipoMovimiento');
+$router->add('/json_tipoMovimientos','TipoMovimientoController@getTipoMovimiento');
 //transferencia de datos
 $router->add('/transferencia','TransferenciaController@transferirDatos');
 // Resolver la solicitud

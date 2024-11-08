@@ -12,7 +12,7 @@ class TipoMovimientoController extends ControllerViews
     {
         $tipoMovimiento = $this->tipoMovimientoModel->getAll();
           // Mapeo de los nombres de las columnas que deseas cambiar
-         /* $mapaColumnas = [
+          $mapaColumnas = [
             'idCuenta' => 'id',
             'nomCuenta' => 'cuenta',
             'saldoCuenta' => 'saldo',
@@ -20,9 +20,9 @@ class TipoMovimientoController extends ControllerViews
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
+        $tipoMovimiento = renombrarColumnas($tipoMovimiento, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message=count($tipoMovimiento).' registros de tipo de movimiento';
         $res->success=true;
         $res->result=$tipoMovimiento;
         createJsonFile($res,'tipoMovimiento');

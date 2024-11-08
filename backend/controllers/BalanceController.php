@@ -12,19 +12,19 @@ class BalanceController extends ControllerViews
     {
         $balance = $this->balanceModel->getAll();
         // Mapeo de los nombres de las columnas que deseas cambiar
-        /* $mapaColumnas = [
-            'idCuenta' => 'id',
-            'nomCuenta' => 'cuenta',
-            'saldoCuenta' => 'saldo',
-            'usuarios_dniUsuario' => 'dni',
+        $mapaColumnas = [
+            'mesBalance'=>'mes',
+            'anoBalance'=>'ano',
+            'importeBalance'=>'importe',
+            'categorias_nomCategoria'=>'categoria'
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
-        $res=new Result();
-        $res->message='mensaje';
-        $res->success=true;
-        $res->result=$balance;
+        $balance = renombrarColumnas($balance, $mapaColumnas);
+        $res = new Result();
+        $res->message= count($balance) . ' registros de balances';
+        $res->success = true;
+        $res->result = $balance;
         createJsonFile($res, 'balance');
     }
 }

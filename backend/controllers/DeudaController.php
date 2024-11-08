@@ -12,17 +12,17 @@ class DeudaController extends ControllerViews
     {
         $deudas = $this->deudasModel->getAll();
           // Mapeo de los nombres de las columnas que deseas cambiar
-         /* $mapaColumnas = [
-            'idCuenta' => 'id',
-            'nomCuenta' => 'cuenta',
-            'saldoCuenta' => 'saldo',
-            'usuarios_dniUsuario' => 'dni',
+          $mapaColumnas = [
+            'idDeuda'=>'id',
+            'nomDeuda'=>'nombre',
+            'totalDeuda'=>'deuda total',
+            'restoDeuda'=>'pendiente',
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
+        $deudas = renombrarColumnas($deudas, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message= count($deudas) . ' registros de deudas';
         $res->success=true;
         $res->result=$deudas;
         createJsonFile($res,'deudas');

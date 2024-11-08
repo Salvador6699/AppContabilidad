@@ -22,7 +22,7 @@ class CuentasController extends ControllerViews
         // Renombrar las columnas usando la función genérica
         $cuentas = renombrarColumnas($cuentas, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message= count($cuentas) . ' registros de cuentas';
         $res->success=true;
         $res->result=$cuentas;
         createJsonFile($res,'cuentas');

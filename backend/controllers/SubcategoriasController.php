@@ -12,7 +12,7 @@ class SubcategoriasController extends ControllerViews
     {
         $subcategorias = $this->subcategoriasModel->getAll();
           // Mapeo de los nombres de las columnas que deseas cambiar
-         /* $mapaColumnas = [
+         $mapaColumnas = [
             'idCuenta' => 'id',
             'nomCuenta' => 'cuenta',
             'saldoCuenta' => 'saldo',
@@ -20,9 +20,9 @@ class SubcategoriasController extends ControllerViews
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
+        $subcategorias = renombrarColumnas($subcategorias, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message=count($subcategorias).' registros de subcategorias';
         $res->success=true;
         $res->result=$subcategorias;
         createJsonFile($res,'subcategorias');

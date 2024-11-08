@@ -12,7 +12,7 @@ class ProyectosController extends ControllerViews
     {
         $proyectos = $this->proyectosModel->getAll();
           // Mapeo de los nombres de las columnas que deseas cambiar
-         /* $mapaColumnas = [
+          $mapaColumnas = [
             'idCuenta' => 'id',
             'nomCuenta' => 'cuenta',
             'saldoCuenta' => 'saldo',
@@ -20,9 +20,9 @@ class ProyectosController extends ControllerViews
         ];
 
         // Renombrar las columnas usando la función genérica
-        $cuentas = renombrarColumnas($cuentas, $mapaColumnas);*/
+        $proyectos = renombrarColumnas($proyectos, $mapaColumnas);
         $res=new Result();
-        $res->message='mensaje';
+        $res->message=count($proyectos).' registros de proyectos';
         $res->success=true;
         $res->result=$proyectos;
         createJsonFile($res,'proyectos');
