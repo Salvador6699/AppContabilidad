@@ -1,18 +1,17 @@
 const UrlComplet=window.location.href;
 // Función para obtener la base URL sin la última parte
 function getBaseUrlWithoutLastSegment(url) {
+    // Dividir la URL en segmentos
+    const segments = url.split('/');
 
+    // Verificar si hay más de 3 segmentos (dominio + 2)
+    if (segments.length > 3) {
+        // Quitar todos los segmentos después del dominio
+        return segments.slice(0, 3).join('/') + '/'; // Agrega una barra final
+    }
 
-// Dividir la URL en segmentos
-const segments = url.split('/');
-
-// Quitar el último segmento
-segments.pop();
-
-// Unir los segmentos restantes para formar la nueva URL base
-const baseUrlWithoutLastSegment = segments.join('/') + '/'; // Agrega una barra final si es necesario
-
-return baseUrlWithoutLastSegment;
+    // Si hay 3 o menos segmentos, devolver la URL tal cual
+    return url + '/'; // Agrega una barra final
 }
 // Obtener la nueva URL base
 const BASE_URL = getBaseUrlWithoutLastSegment(UrlComplet);
