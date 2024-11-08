@@ -10,7 +10,7 @@ async function allCategorias() {
                 "beforeend",
                 `
                     ${categoria == 'Ingresos' ? '' : `
-                        <div class="card" onclick="mensaje('${categoria}')">
+                        <div class="card">
                         <h3>${categoria}</h3>
                         <hr>
                         <h4>-${subcategorias}</h4>
