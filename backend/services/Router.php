@@ -8,9 +8,8 @@ class Router
     // Agregar rutas al enrutador, con soporte para parámetros como {id}
     public function add($route, $action)
     {
-        // Reemplazar {parametro} por una expresión regular
-        $route = preg_replace('/\{(\w+)\}/', '(\d+)', $route);
-        $this->routes[$route] = $action;
+        $route = preg_replace('/\{(\w+)\}/', '(?P<\1>[^\/]+)', $route); // Usar grupos con nombre
+        $this->routes["#^$route$#"] = $action;
     }
 
     // Definir una ruta 404 por defecto
@@ -22,36 +21,27 @@ class Router
     // Resolver la solicitud y extraer parámetros si es necesario
     public function resolve($requestUri, $conexion)
     {
-        // Quitar parámetros de la query string
         $request = strtok($requestUri, '?');
 
         foreach ($this->routes as $route => $action) {
-            // Comprobar si la ruta coincide con la solicitud
-            if (preg_match("#^$route$#", $request, $matches)) {
-                // Si hay parámetros capturados, extraerlos
-                array_shift($matches); // Eliminar el primer elemento, que es la URL completa
-
+            if (preg_match($route, $request, $matches)) {
                 list($controller, $method) = explode('@', $action);
-
-                // Incluir el archivo del controlador
                 require_once "../backend/controllers/$controller.php";
-
-                // Crear una instancia del controlador
                 $controllerInstance = new $controller($conexion);
 
-                // Comprobar si el método existe en el controlador
+                // Filtrar $matches para obtener solo los parámetros capturados
+                $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+
                 if (method_exists($controllerInstance, $method)) {
-                    // Llamar al método con los parámetros capturados
-                    call_user_func_array([$controllerInstance, $method], $matches);
+                    call_user_func_array([$controllerInstance, $method], $params);
+                    return;
                 } else {
-                    // Manejar el error 404 si el método no existe
                     $this->handleNotFound();
                     return;
                 }
             }
         }
 
-        // Si no se encuentra la ruta, manejar el error 404
         $this->handleNotFound();
     }
 
