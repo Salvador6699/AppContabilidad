@@ -1,21 +1,28 @@
 async function allCategorias() {
     try {
         let response = await fetch(urlJson + 'categorias.json');
-        let responseData = await response.json(); // Mover aquí para evitar duplicación
-        let cuentas = document.getElementById('categorias');
+        let responseData = await response.json();
+        let categorias = document.getElementById('categorias');
         responseData.result.forEach((element) => {
-            
-            // Insertar los datos dentro del contenedor
-            cuentas.insertAdjacentHTML(
+            let subcategorias= element.subcategorias.map(categoria => categoria.subcategoria).join('<br>-'); 
+            let categoria=element.nombre;
+            categorias.insertAdjacentHTML(
                 "beforeend",
-                `<div class="card">
-                    <h3>${element.nomCategoria}</h3><h5>(${element.tipoCategoria})</h5>
-                </div>`
+                `
+                    ${categoria == 'Ingresos' ? '' : `
+                        <div class="card" onclick="mensaje('${categoria}')">
+                        <h3>${categoria}</h3>
+                        <hr>
+                        <h4>-${subcategorias}</h4>
+                        </div>`}
+                `
             );
         });
-    }
-    catch (error) {
-        console.error("No hay json:", error); // Manejo de errores
-        let json = await fetch(BASE_URL + 'json_categorias');
+    } catch (error) {
+        console.error("No hay json:", error);
     } 
+}
+
+function mensaje(tipo) {
+    window.location.href = `/about/${tipo}`;
 }
