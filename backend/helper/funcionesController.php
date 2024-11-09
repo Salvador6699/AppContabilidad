@@ -24,7 +24,9 @@ function createJsonFile($data, $fileName)
     $jsonData = json_encode($data, JSON_PRETTY_PRINT);
     
     if (file_put_contents($file, $jsonData) !== false) {
-        return true; // El archivo se creó correctamente
+        //return true; // El archivo se creó correctamente   
+        header('Location: /'); exit();
+
     } else {
         return false; // Error al crear el archivo
     }

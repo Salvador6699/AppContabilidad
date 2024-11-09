@@ -46,7 +46,7 @@ class CategoriasController extends ControllerViews
         $res->success = true;
         $res->result = $categorias;
         createJsonFile($res, 'categorias');
-        header('Location: /'); exit(); // Asegúrate de usar exit() para detener la ejecución del script
+        
     }
     
 }
