@@ -8,7 +8,7 @@ async function allCuentas() {
             // Insertar los datos dentro del contenedor
             cuentas.insertAdjacentHTML(
                 "beforeend",
-                `<div class="card" onclick="toggleCard(this);">
+                `<div class="card" onclick="toggleCard(this);" ondblclick="irAPagina()">
                     <div class="card-inner">
                         <div class="card-front" style="background: ${color};">
                             <h3>${element.cuenta}</h3>
@@ -41,4 +41,8 @@ function toggleCard(card) {
     });
     // Alternar la clase de la tarjeta actual
     card.classList.toggle('animate');
+}
+// Nueva función para redirigir a una página
+function irAPagina() {
+    window.location.href = '/cuentas'; // Reemplaza con la URL deseada
 }
