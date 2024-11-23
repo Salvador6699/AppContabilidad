@@ -15,7 +15,7 @@
     <!-- Agregar la versión a la hoja de estilos -->
     <link rel="stylesheet" href="/frontend/assets/css/styles.css?v=<?php echo $version; ?>">
     <link rel="stylesheet" href="/frontend/assets/css/error.css?v=<?php echo $version; ?>">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Agregar la versión al archivo JS -->
     <script src="/frontend/assets/js/url.js?v=<?php echo $version; ?>"></script>
 </head>
