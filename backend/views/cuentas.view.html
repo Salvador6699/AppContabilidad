@@ -1,9 +1,28 @@
 <section id="cuentas" class="cards">
-    <span  class="titulo_cards">Cuentas</span>
+    
+    <img src="https://img.icons8.com/?size=100&id=JzBXDDA2kACA&format=png&color=000000" alt="" class="esquina" onclick="animateAndRedirect();">
+    <span class="titulo_cards">Cuentas</span>
     <!-- Las tarjetas se insertarán aquí por cuentas.js -->
 </section>
 <script src="/frontend/assets/js/cuentas.js"></script>
 <script>
-allCuentas() ;// Llamar a la función para inicializar;
+function animateAndRedirect() {
+    const icon = document.querySelector('.esquina');
+    icon.classList.add('animacion'); // Agregar clase de animación
+    setTimeout(() => {
+        window.location.href = '/json_cuentas'; // Redirigir después de la animación
+    }, 1500); // Tiempo de duración de la animación
+}
+allCuentas(); // Llamar a la función para inicializar;
 </script>
+<style>
+.animacion {
+    animation: rotar 2s  /* Cambiado a 2.5 segundos */
+}
 
+@keyframes rotar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(1440deg); }
+    
+}
+</style>
