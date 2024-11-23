@@ -64,10 +64,19 @@
     </main>
     <!-- Botón flotante y sus opciones -->
     <div class="floating-button-container">
-        <button class="floating-button" id="add-button">+</button>
-        <button class="floating-action hidden" id="gasto-button">G</button>
-        <button class="floating-action hidden" id="ingreso-button">I</button>
-        <button class="floating-action hidden" id="transferencia-button">T</button>
+        <button class="floating-button" id="add-button" >
+            <img src="https://img.icons8.com/?size=100&id=ps43K8HtbRdK&format=png&color=000000" alt="" style="width: 100%; height: 100%;">
+        </button>
+        <button class="floating-action hidden" id="gasto-button" style="width: 90%; height: 90%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="https://img.icons8.com/?size=100&id=34401&format=png&color=000000" alt="" style="max-width: 100%; max-height: 100%;">
+        </button>
+        <button class="floating-action hidden" id="ingreso-button" style="width: 90%; height: 90%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="https://img.icons8.com/?size=100&id=48556&format=png&color=000000" alt="" style="max-width: 100%; max-height: 100%;">
+        </button>
+        <button class="floating-action hidden" id="transferencia-button" style="width: 90%; height: 90%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="https://img.icons8.com/?size=100&id=Ck6LpiQ3a6uv&format=png&color=000000" alt="" style="max-width: 100%; max-height: 100%;">
+        </button>
+
     </div>
 
     <script src="/frontend/assets/js/scripts.js">
