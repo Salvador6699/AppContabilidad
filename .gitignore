@@ -1,7 +1,8 @@
 .vscode/
 .phpunit.result.cache
-.database/
+database/
 .cache/
+img/
 *.sql
 *.otf
 *.json
